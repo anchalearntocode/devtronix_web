@@ -8,6 +8,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
 <title>Werewolf — Malam yang Mencekam</title>
+<link rel="icon" type="image/jpeg" href="uploads/kelas_logo.jpg?v=3">
 <!-- Space Grotesk Google Font -->
 <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;700;900&display=swap" rel="stylesheet">
 <script src="https://cdn.tailwindcss.com"></script>
@@ -642,29 +643,29 @@ function toggleBGM() {
 
 document.addEventListener('DOMContentLoaded', () => {
   const defaultList = [
-    "Alwan",
-    "Anjeli",
-    "Anni",
-    "Baso",
-    "Irfa Dilla",
-    "Nova",
-    "Raidah",
-    "Fauziah",
-    "Hakim",
-    "Aril",
-    "Ancha",
-    "Rasyah",
-    "Reva",
-    "Andreas",
-    "Zizi",
-    "Aldy",
-    "Diva",
-    "Yunus",
-    "Tiwi",
-    "Tasa",
-    "Aca",
-    "Rafa",
-    "Alim"
+    "alwan",
+    "anjeli",
+    "anni",
+    "baso",
+    "irfa dilla",
+    "nova",
+    "raidah",
+    "fauziah",
+    "hakim",
+    "aril",
+    "ancha",
+    "rasyah",
+    "reva",
+    "andreas",
+    "zizi",
+    "aldy",
+    "diva",
+    "yunus",
+    "tiwi",
+    "tasa",
+    "aca",
+    "rafa",
+    "alim"
   ];
   
   const v2_flag = localStorage.getItem('devtronix_ww_names_v2');

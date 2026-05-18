@@ -376,6 +376,7 @@ $days = ['Senin', 'Selasa', 'Rabu', 'Kamis', 'Jumat'];
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Devtronix Admin Dashboard</title>
+    <link rel="icon" type="image/jpeg" href="uploads/kelas_logo.jpg?v=3">
     <!-- Space Grotesk Google Font -->
     <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;700;900&display=swap" rel="stylesheet">
     <link href="https://cdnjs.cloudflare.com/ajax/libs/cropperjs/1.5.13/cropper.min.css" rel="stylesheet">
