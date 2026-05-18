@@ -515,7 +515,7 @@ foreach ($days as $day) {
                     Permainan Kelas
                 </h2>
                 
-                <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
+                <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 xl:grid-cols-5 gap-8">
                     <!-- Game Card: Werewolf -->
                     <div class="neo-btn bg-white dark:bg-[#1E1E1E] rounded-xl border-[3px] border-black dark:border-white overflow-hidden shadow-[6px_6px_0px_0px_rgba(0,0,0,1)] dark:shadow-[6px_6px_0px_0px_rgba(255,255,255,1)] flex flex-col h-full group">
                         <div class="h-36 bg-brutal-purple flex items-center justify-center relative overflow-hidden border-b-[3px] border-black dark:border-white">
@@ -525,7 +525,7 @@ foreach ($days as $day) {
                             <h3 class="text-xl font-black text-black dark:text-white mb-2 uppercase">Werewolf</h3>
                             <p class="text-slate-700 dark:text-slate-300 text-sm mb-6 flex-1 font-medium">Malam yang mencekam. Lengkap dengan 24 role interaktif offline!</p>
                             <a href="warewolf.php" target="_blank" class="neo-btn inline-flex items-center justify-center w-full bg-brutal-purple text-black border-2 border-black font-black px-4 py-2.5 rounded-lg text-sm transition-all shadow-[2px_2px_0px_0px_rgba(0,0,0,1)]">
-                                Mainkan ⚔️
+                                Mainkan
                             </a>
                         </div>
                     </div>
@@ -539,7 +539,7 @@ foreach ($days as $day) {
                             <h3 class="text-xl font-black text-black dark:text-white mb-2 uppercase">Truth or Dare</h3>
                             <p class="text-slate-700 dark:text-slate-300 text-sm mb-6 flex-1 font-medium">Jujur atau berani? Game paling seru untuk kumpul kelas!</p>
                             <a href="truth-or-dare.php" class="neo-btn inline-flex items-center justify-center w-full bg-brutal-pink text-black border-2 border-black font-black px-4 py-2.5 rounded-lg text-sm transition-all shadow-[2px_2px_0px_0px_rgba(0,0,0,1)]">
-                                Mainkan 🃏
+                                Mainkan
                             </a>
                         </div>
                     </div>
@@ -553,7 +553,7 @@ foreach ($days as $day) {
                             <h3 class="text-xl font-black text-black dark:text-white mb-2 uppercase">Tebak Kata</h3>
                             <p class="text-slate-700 dark:text-slate-300 text-sm mb-6 flex-1 font-medium">Uji wawasanmu tentang komponen elektronika!</p>
                             <a href="tebak-kata.php" class="neo-btn inline-flex items-center justify-center w-full bg-brutal-cyan text-black border-2 border-black font-black px-4 py-2.5 rounded-lg text-sm transition-all shadow-[2px_2px_0px_0px_rgba(0,0,0,1)]">
-                                Mainkan 🔠
+                                Mainkan
                             </a>
                         </div>
                     </div>
@@ -567,7 +567,21 @@ foreach ($days as $day) {
                             <h3 class="text-xl font-black text-black dark:text-white mb-2 uppercase">Tic Tac Toe</h3>
                             <p class="text-slate-700 dark:text-slate-300 text-sm mb-6 flex-1 font-medium">Klasik 2 pemain. Siapa yang paling cerdik?</p>
                             <a href="tictactoe.php" class="neo-btn inline-flex items-center justify-center w-full bg-brutal-yellow text-black border-2 border-black font-black px-4 py-2.5 rounded-lg text-sm transition-all shadow-[2px_2px_0px_0px_rgba(0,0,0,1)]">
-                                Mainkan ❌
+                                Mainkan
+                            </a>
+                        </div>
+                    </div>
+
+                    <!-- Game Card: Undercover -->
+                    <div class="neo-btn bg-white dark:bg-[#1E1E1E] rounded-xl border-[3px] border-black dark:border-white overflow-hidden shadow-[6px_6px_0px_0px_rgba(0,0,0,1)] dark:shadow-[6px_6px_0px_0px_rgba(255,255,255,1)] flex flex-col h-full group">
+                        <div class="h-36 bg-brutal-green flex items-center justify-center relative overflow-hidden border-b-[3px] border-black dark:border-white">
+                            <img src="uploads/undercover_logo.png?v=3" alt="Undercover Logo" class="h-24 w-24 object-contain rounded-full border-[3px] border-black bg-white p-1 shadow-[3px_3px_0px_0px_rgba(0,0,0,1)] group-hover:scale-110 transition-transform duration-500">
+                        </div>
+                        <div class="p-6 flex flex-col flex-1">
+                            <h3 class="text-xl font-black text-black dark:text-white mb-2 uppercase">Undercover</h3>
+                            <p class="text-slate-700 dark:text-slate-300 text-sm mb-6 flex-1 font-medium">Temukan Penyusup di antaramu! Terintegrasi Gemini AI.</p>
+                            <a href="undercover.php" class="neo-btn inline-flex items-center justify-center w-full bg-brutal-green text-black border-2 border-black font-black px-4 py-2.5 rounded-lg text-sm transition-all shadow-[2px_2px_0px_0px_rgba(0,0,0,1)]">
+                                Mainkan
                             </a>
                         </div>
                     </div>
