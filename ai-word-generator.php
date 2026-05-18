@@ -74,39 +74,75 @@ $payload = [
     ]
 ];
 
-$apiUrl = 'https://generativelanguage.googleapis.com/v1beta/models/gemini-1.5-flash:generateContent?key=' . $apiKey;
-
-$ch = curl_init($apiUrl);
-curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
-curl_setopt($ch, CURLOPT_POST, true);
-curl_setopt($ch, CURLOPT_POSTFIELDS, json_encode($payload));
-curl_setopt($ch, CURLOPT_HTTPHEADER, [
-    'Content-Type: application/json'
-]);
-curl_setopt($ch, CURLOPT_TIMEOUT, 15);
-
-// Jalankan request
-$response = curl_exec($ch);
-$httpCode = curl_getinfo($ch, CURLINFO_HTTP_CODE);
-$curlError = curl_error($ch);
-curl_close($ch);
-
-if ($curlError) {
-    http_response_code(500);
-    echo json_encode([
-        'success' => false,
-        'error' => 'Koneksi ke server Gemini gagal: ' . $curlError
+// Fungsi pembantu untuk memanggil API Gemini secara terisolasi
+function callGeminiAPI($apiKey, $apiVersion, $modelName, $payload) {
+    $apiUrl = "https://generativelanguage.googleapis.com/{$apiVersion}/models/{$modelName}:generateContent?key=" . $apiKey;
+    
+    $ch = curl_init($apiUrl);
+    curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
+    curl_setopt($ch, CURLOPT_POST, true);
+    curl_setopt($ch, CURLOPT_POSTFIELDS, json_encode($payload));
+    curl_setopt($ch, CURLOPT_HTTPHEADER, [
+        'Content-Type: application/json'
     ]);
-    exit;
+    curl_setopt($ch, CURLOPT_TIMEOUT, 6); // Timeout singkat per model agar cepat berganti jika gagal
+    
+    $response = curl_exec($ch);
+    $httpCode = curl_getinfo($ch, CURLINFO_HTTP_CODE);
+    $curlError = curl_error($ch);
+    curl_close($ch);
+    
+    return [
+        'response' => $response,
+        'httpCode' => $httpCode,
+        'error' => $curlError
+    ];
 }
 
-if ($httpCode !== 200) {
-    $respDecoded = json_decode($response, true);
-    $errorMessage = isset($respDecoded['error']['message']) ? $respDecoded['error']['message'] : 'Gagal terhubung ke API Gemini.';
-    http_response_code($httpCode);
+// Urutan model & versi API yang akan dicoba (dari yang paling baru/stabil)
+$attempts = [
+    ['version' => 'v1beta', 'model' => 'gemini-2.5-flash'],
+    ['version' => 'v1',     'model' => 'gemini-2.5-flash'],
+    ['version' => 'v1beta', 'model' => 'gemini-1.5-flash'],
+    ['version' => 'v1',     'model' => 'gemini-1.5-flash'],
+    ['version' => 'v1beta', 'model' => 'gemini-2.0-flash'],
+];
+
+$success = false;
+$lastError = 'Semua model Gemini yang dicoba gagal merespon.';
+$lastHttpCode = 500;
+$response = '';
+
+foreach ($attempts as $attempt) {
+    $res = callGeminiAPI($apiKey, $attempt['version'], $attempt['model'], $payload);
+    
+    // Jika ada error jaringan CURL
+    if ($res['error']) {
+        $lastError = 'Koneksi gagal pada model ' . $attempt['model'] . ': ' . $res['error'];
+        $lastHttpCode = 500;
+        continue;
+    }
+    
+    // Jika sukses terhubung dan diproses
+    if ($res['httpCode'] === 200) {
+        $response = $res['response'];
+        $lastHttpCode = 200;
+        $success = true;
+        break; // Keluar dari perulangan karena sudah sukses!
+    } else {
+        $respDecoded = json_decode($res['response'], true);
+        $lastError = isset($respDecoded['error']['message']) 
+            ? $respDecoded['error']['message'] 
+            : 'Error ' . $res['httpCode'] . ' pada model ' . $attempt['model'];
+        $lastHttpCode = $res['httpCode'];
+    }
+}
+
+if (!$success) {
+    http_response_code($lastHttpCode);
     echo json_encode([
         'success' => false,
-        'error' => 'API Gemini Error (' . $httpCode . '): ' . $errorMessage
+        'error' => 'API Gemini Error (' . $lastHttpCode . '): ' . $lastError
     ]);
     exit;
 }
