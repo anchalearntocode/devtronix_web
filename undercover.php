@@ -11,7 +11,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Undercover - Devtronix Arcade</title>
-    <link rel="icon" type="image/jpeg" href="uploads/kelas_logo.jpg?v=3">
+    <link class="fav" rel="icon" type="image/svg+xml" href="uploads/kelas_logo_circle.svg?v=3">
     <!-- Space Grotesk Google Font -->
     <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;700;900&display=swap" rel="stylesheet">
     <script src="https://cdn.tailwindcss.com"></script>

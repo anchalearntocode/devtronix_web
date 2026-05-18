@@ -98,7 +98,7 @@ foreach ($days as $day) {
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Devtronix - Official Website</title>
-    <link rel="icon" type="image/jpeg" href="uploads/kelas_logo.jpg?v=3">
+    <link rel="icon" type="image/svg+xml" href="uploads/kelas_logo_circle.svg?v=3">
     <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;700;900&family=JetBrains+Mono:wght@400;700&display=swap" rel="stylesheet">
     <script src="https://cdn.tailwindcss.com"></script>
     <script>
